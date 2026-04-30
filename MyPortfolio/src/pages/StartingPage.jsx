@@ -35,14 +35,15 @@ function StartingPage() {
     return (
         <>
             <title>Joseph James Pungyan</title>
-            <video autoPlay loop muted className="video-background">
-                <source src="/background.mp4" type="video/mp4" />
-            </video>
+            <div className="starting-page-wrapper">
+                <video autoPlay loop muted className="video-background">
+                    <source src="/background.mp4" type="video/mp4" />
+                </video>
 
-            <div className="video-overlay"></div>
-            <div className="content-wrapper">
+                <div className="video-overlay"></div>
+                <div className="content-wrapper">
 
-                <div className="content-container">
+                    <div className="content-container">
                     <div className="profile-texts">
                         <div>
                             <p className="portfolio-text">
@@ -100,6 +101,7 @@ function StartingPage() {
                     </div>
                 </div>
 
+                </div>
             </div>
         </>
     )
