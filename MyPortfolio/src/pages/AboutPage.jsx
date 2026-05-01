@@ -41,7 +41,6 @@ function AboutPage() {
                 <hr className="about-main-line" />
 
                 <div className="top-sections-wrapper">
-                    {/* Wrapper animates in, inner box handles hover */}
                     <div className="box-anim box-anim-1">
                         <div className="get-to-know-me-container box-hover">
                             <h3 className="about-header">Get to Know Me</h3>
