@@ -94,14 +94,11 @@
     animation: fadeInUp 0.7s ease 0.1s both;
 }
 
-.text {
+/* Don't animate .text directly - it uses transition for rotating text */
+.banner-line {
     animation: fadeInUp 0.7s ease 0.3s both;
 }
 
-.banner-line {
-    animation: fadeInUp 0.7s ease 0.5s both;
-}
-
 .banner-info {
-    animation: fadeInUp 0.7s ease 0.7s both;
+    animation: fadeInUp 0.7s ease 0.5s both;
 }
