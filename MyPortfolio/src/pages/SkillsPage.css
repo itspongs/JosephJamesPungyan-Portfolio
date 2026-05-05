@@ -1,0 +1,263 @@
+.skills-page {
+    background-color: rgba(0, 0, 0, 0.85);
+    padding: 40px 6%;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Scroll animation */
+.skills-content {
+    opacity: 1;
+}
+
+.skills-content .skills-header-wrapper,
+.skills-content hr,
+.skills-content .sk-anim {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.skills-content.visible .skills-header-wrapper { animation: floatIn 0.7s ease 0s   forwards; }
+.skills-content.visible hr                      { animation: floatIn 0.7s ease 0.2s forwards; }
+.skills-content.visible .sk-anim-1             { animation: floatIn 0.7s ease 0.4s forwards; }
+.skills-content.visible .sk-anim-2             { animation: floatIn 0.7s ease 0.6s forwards; }
+.skills-content.visible .sk-anim-3             { animation: floatIn 0.7s ease 0.8s forwards; }
+
+/* sk-anim wrapper fills full width */
+.sk-anim {
+    width: 100%;
+}
+
+/* Hover on inner box - separate from animation */
+.sk-hover {
+    transition: transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.sk-hover:hover {
+    transform: scale(1.02);
+    background-color: rgba(134, 51, 51, 0.8);
+    border-color: rgb(225, 86, 86);
+}
+
+/* Re-enable visible state rules */
+.skills-content.visible .languages-wrapper,
+.skills-content.visible .web-wrapper,
+.skills-content.visible .tools-wrapper {
+    transition: transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.skills-header-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+    margin: 20px 20px;
+}
+
+.skills-title-group {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+}
+
+.skills-sub-header {
+    color: rgb(225, 86, 86);
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: clamp(10px, 0.8vw, 14px);
+    letter-spacing: 2px;
+    margin-bottom: 0px;
+}
+
+.skills-title {
+    color: rgb(255, 255, 255);
+    font-family: 'Crimson Text', serif;
+    font-weight: 600;
+    font-size: 80px;
+    flex-shrink: 0;
+}
+
+.skills-header-description {
+    color: rgb(255, 255, 255);
+    font-size: 28px;
+    flex: 1;
+    text-align: right;
+    font-family: 'Pontano Sans', sans-serif;
+    font-weight: 300;
+}
+
+.skills-container {
+    margin: 40px;
+}
+
+.languages-wrapper,
+.web-wrapper,
+.tools-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin: 20px 0;
+    background-color: rgba(101, 101, 101, 0.763);
+    border-left: 30px solid rgb(131, 110, 110);
+    min-height: 100px;
+    border-radius: 0px 20px 20px 0px;
+    padding: 16px;
+}
+
+.label-text {
+    color: rgba(255, 255, 255, 0.453);
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 4px;
+    width: 100%;
+    margin: 0 0 8px 0;
+}
+
+.logo-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.languages-logo,
+.web-logo,
+.tools-logo {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    margin: 10px;
+    opacity: 0.6;
+}
+
+.logo-label {
+    color: rgba(0, 0, 0, 0.6);
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-align: center; 
+    margin: 0px 0px 20px 0px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 860px) {
+    .skills-page {
+        padding: 30px 5%;
+    }
+
+    .skills-header-wrapper {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        margin: 10px 0;
+    }
+
+    .skills-title {
+        font-size: clamp(40px, 8vw, 80px);
+    }
+
+    .skills-header-description {
+        font-size: clamp(16px, 2.5vw, 28px);
+        text-align: right;
+    }
+}
+
+@media (max-width: 480px) {
+    .skills-page {
+        padding: 20px 4%;
+    }
+
+    .skills-header-wrapper {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+    .skills-title {
+        font-size: clamp(36px, 10vw, 55px);
+    }
+
+    .skills-header-description {
+        font-size: clamp(13px, 3vw, 18px);
+        text-align: right;
+    }
+}
+
+@keyframes floatIn {
+    0%   { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0);    }
+}
+
+@keyframes floatUpDown {
+    0%   { transform: translateY(0px);  }
+    50%  { transform: translateY(-8px); }
+    100% { transform: translateY(0px);  }
+}
+
+/* Box hover - transition handled by sk-hover */
+.languages-wrapper,
+.web-wrapper,
+.tools-wrapper {
+    transition: transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Logo items float on hover */
+.sk-hover:hover .logo-item {
+    animation: floatUpDown 1.5s ease-in-out infinite;
+}
+
+/* Logo opacity on hover */
+.sk-hover:hover .languages-logo,
+.sk-hover:hover .web-logo,
+.sk-hover:hover .tools-logo {
+    opacity: 1;
+    transition: opacity 0.3s ease;
+    filter: brightness(0) invert(1);
+}
+
+/* Logo label on hover */
+.sk-hover:hover .logo-label {
+    opacity: 1;
+    color: white;
+    transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+/* Label text on hover */
+.sk-hover:hover .label-text {
+    color: rgb(225, 86, 86);
+    transition: color 0.3s ease;
+}
+
+/* Label text opacity on hover */
+.languages-wrapper .label-text,
+.web-wrapper .label-text,
+.tools-wrapper .label-text {
+    transition: color 0.3s ease;
+}
+
+.languages-wrapper:hover .label-text,
+.web-wrapper:hover .label-text,
+.tools-wrapper:hover .label-text {
+    color: #cfceb5;
+}
+
+/* White filter on logo images when hovering the box */
+.languages-wrapper:hover .languages-logo,
+.web-wrapper:hover .web-logo,
+.tools-wrapper:hover .tools-logo {
+    filter: brightness(0) invert(1);
+    transition: filter 0.3s ease;
+}
+
+/* White logo label on hover */
+.languages-wrapper:hover .logo-label,
+.web-wrapper:hover .logo-label,
+.tools-wrapper:hover .logo-label {
+    color: white;
+    transition: color 0.3s ease;
+}
