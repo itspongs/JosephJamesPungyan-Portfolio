@@ -1,0 +1,214 @@
+.project-page {
+    background-color: rgba(0, 0, 0, 0.85);
+    padding: 40px 6%;
+    font-family: 'Inter', sans-serif;
+}
+
+.project-header-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+    margin: 20px 20px;
+}
+
+.project-title-group {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+}
+
+.project-sub-header {
+    color: rgb(225, 86, 86);
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: clamp(10px, 0.8vw, 14px);
+    letter-spacing: 2px;
+    margin-bottom: 0px;
+}
+
+.project-title {
+    color: rgb(255, 255, 255);
+    font-family: 'Crimson Text', serif;
+    font-weight: 600;
+    font-size: 80px;
+    flex-shrink: 0;
+}
+
+.project-header-description {
+    color: rgb(255, 255, 255);
+    font-size: 28px;
+    flex: 1;
+    text-align: right;
+    font-family: 'Pontano Sans', sans-serif;
+    font-weight: 300;
+}
+
+.projects-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin: 40px 20px;
+}
+
+.projects-grid .project-wrapper {
+    flex: 0 0 calc(33.333% - 16px);
+}
+
+.project-wrapper {
+    background-color: rgba(154, 0, 0, 0.679);
+    border-radius: 10px;
+    overflow: hidden;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-wrapper:hover {
+    transform: scale(1.03);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+}
+
+.project-image-placeholder {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.project-info {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+}
+
+.project-title-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.project-title-name {
+    color: white;
+    font-family: 'Crimson Text', serif;
+    font-size: 40px;
+    margin: 0;
+}
+
+.project-type {
+    color: rgb(225, 86, 86);
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    border: 0.8px solid rgb(225, 86, 86);
+    border-radius: 20px;
+    padding: 5px 20px;
+    display: inline-block;
+    align-self: flex-start;
+    width: fit-content;
+}
+
+.project-date {
+    color: rgba(255, 255, 255, 0.6);
+    font-family: 'INTER', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin: 0;
+}
+
+.project-divider {
+    border-color: rgba(225, 86, 86, 0.4);
+    margin: 6px 0;
+}
+
+.project-description {
+    color: rgb(198, 197, 197);
+    font-family: 'Pontano Sans', sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+    margin: 0;
+    line-height: 1.5;
+    margin: 0px 0px 20px 0px;
+}
+
+.view-project-button {
+    padding: 10px;
+    font-family: 'Inter';
+    font-weight: 700;
+    font-style: bold;
+    letter-spacing: 3px;
+    color: rgb(221, 75, 75);
+    background-color: transparent;
+    border: solid 1.8px;
+    border-radius: 20px;
+    transition: background-color 0.3s ease;
+    margin-top: auto;
+}
+
+.view-project-button:hover {
+    background-color: rgba(253, 117, 117, 0.197);
+    cursor: pointer;
+}
+
+@media (max-width: 860px) {
+    .projects-grid .project-wrapper {
+        flex: 0 0 calc(50% - 12px);
+    }
+}
+
+@media (max-width: 480px) {
+    .projects-grid .project-wrapper {
+        flex: 0 0 100%;
+    }
+}
+
+/* ── Responsive ── */
+@media (max-width: 860px) {
+    .project-page {
+        padding: 30px 5%;
+    }
+
+    .project-header-wrapper {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        margin: 10px 0;
+    }
+
+    .project-title {
+        font-size: clamp(40px, 8vw, 80px);
+    }
+
+    .project-header-description {
+        font-size: clamp(16px, 2.5vw, 28px);
+        text-align: right;
+    }
+}
+
+@media (max-width: 480px) {
+    .project-page {
+        padding: 20px 4%;
+    }
+
+    .project-header-wrapper {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+    .project-title {
+        font-size: clamp(36px, 10vw, 55px);
+    }
+
+    .project-header-description {
+        font-size: clamp(13px, 3vw, 18px);
+        text-align: right;
+    }
+}
+
