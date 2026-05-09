@@ -7,3 +7,15 @@
 body {
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
 }
+
+.App {
+  position: relative;
+}
+
+/* Prevent gaps between sections */
+.App > * {
+  display: block;
+  margin: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+}
