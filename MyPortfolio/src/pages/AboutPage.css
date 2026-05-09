@@ -15,7 +15,6 @@
     opacity: 1;
 }
 
-/* Hidden by default */
 .about-content .about-header-wrapper,
 .about-content .about-main-line,
 .about-content .box-anim {
@@ -23,7 +22,6 @@
     transform: translateY(40px);
 }
 
-/* Stagger animation on scroll */
 .about-content.visible .about-header-wrapper { animation: floatIn 0.7s ease 0s   forwards; }
 .about-content.visible .about-main-line      { animation: floatIn 0.7s ease 0.2s forwards; }
 .about-content.visible .box-anim-1           { animation: floatIn 0.7s ease 0.4s forwards; }
@@ -31,7 +29,6 @@
 .about-content.visible .box-anim-3           { animation: floatIn 0.7s ease 0.8s forwards; }
 .about-content.visible .box-anim-4           { animation: floatIn 0.7s ease 1.0s forwards; }
 
-/* Hover on inner box - works independently from animation */
 .box-anim {
     flex: 1;
     display: flex;
@@ -272,4 +269,19 @@
         font-size: 11px;
         padding: 3px 10px;
     }
+}
+
+.about-box-header-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 0;
+}
+
+.about-box-logo {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+    margin: -23px 10px 0px 0px;
+    filter: brightness(0) invert(1);
 }
