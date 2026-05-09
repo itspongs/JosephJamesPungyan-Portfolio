@@ -244,3 +244,29 @@
     align-items: center;
     margin: 10px 0;
 }
+
+.blog-entry-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.blog-entry-logo {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    filter: brightness(0) saturate(100%) invert(40%) sepia(80%) saturate(500%) hue-rotate(320deg);
+}
+
+.blog-footer-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.blog-footer-logo {
+    width: 15px;
+    height: 15px;
+    object-fit: contain;
+    filter: brightness(0) saturate(100%) invert(40%) sepia(80%) saturate(500%) hue-rotate(320deg);
+}
