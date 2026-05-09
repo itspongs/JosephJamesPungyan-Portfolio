@@ -267,3 +267,6 @@
         font-size: clamp(13px, 3vw, 16px);
     }
 }
+
+/* Footer spacing */
+.timeline-page { padding-bottom: 100px !important; }

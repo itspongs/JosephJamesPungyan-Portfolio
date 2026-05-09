@@ -233,3 +233,6 @@
 .project-content.visible hr                       { animation: floatIn 0.7s ease 0.2s forwards; }
 .project-content.visible .projects-grid           { animation: floatIn 0.7s ease 0.4s forwards; }
 
+
+/* Footer spacing */
+.project-page { padding-bottom: 100px !important; }

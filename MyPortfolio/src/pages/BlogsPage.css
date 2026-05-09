@@ -289,3 +289,6 @@
 .blog-content.visible .blog-header-wrapper { animation: floatIn 0.7s ease 0s   forwards; }
 .blog-content.visible hr                   { animation: floatIn 0.7s ease 0.2s forwards; }
 .blog-content.visible .blogs-grid          { animation: floatIn 0.7s ease 0.4s forwards; }
+
+/* Footer spacing */
+.blog-page { padding-bottom: 100px !important; }

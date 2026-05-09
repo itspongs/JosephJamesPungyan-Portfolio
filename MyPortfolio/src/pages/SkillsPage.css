@@ -260,3 +260,6 @@
     color: white;
     transition: color 0.3s ease;
 }
+
+/* Footer spacing */
+.skills-page { padding-bottom: 100px !important; }

@@ -285,3 +285,6 @@
     margin: -23px 10px 0px 0px;
     filter: brightness(0) invert(1);
 }
+
+/* Footer spacing */
+.about-page { padding-bottom: 100px !important; }

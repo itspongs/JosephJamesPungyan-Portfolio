@@ -147,3 +147,6 @@
         font-size: clamp(16px, 3.5vw, 22px);
     }
 }
+
+/* Footer spacing */
+.contact-section { padding-bottom: 100px !important; }
