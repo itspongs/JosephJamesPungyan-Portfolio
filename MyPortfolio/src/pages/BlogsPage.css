@@ -270,3 +270,25 @@
     object-fit: contain;
     filter: brightness(0) saturate(100%) invert(40%) sepia(80%) saturate(500%) hue-rotate(320deg);
 }
+
+@keyframes floatIn {
+    0%   { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0);    }
+}
+
+.blog-content {
+    opacity: 1;
+}
+
+/* Hidden by default */
+.blog-content .blog-header-wrapper,
+.blog-content hr,
+.blog-content .blogs-grid {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+/* Staggered animation */
+.blog-content.visible .blog-header-wrapper { animation: floatIn 0.7s ease 0s   forwards; }
+.blog-content.visible hr                   { animation: floatIn 0.7s ease 0.2s forwards; }
+.blog-content.visible .blogs-grid          { animation: floatIn 0.7s ease 0.4s forwards; }
