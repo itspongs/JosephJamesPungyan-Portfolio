@@ -1,3 +1,32 @@
 .page-content {
     margin-top: 0;
+    padding-bottom: 0;
+    background-color: rgba(0, 0, 0, 0.85);
+}
+
+/* Space for footer on each page */
+.about-page,
+.timeline-page,
+.skills-page,
+.project-page,
+.blog-page,
+.contact-section {
+    padding-bottom: 100px;
+}
+
+/* Contact section smooth slide */
+.contact-wrapper {
+    overflow: hidden;
+    transition: max-height 0.8s ease, opacity 0.8s ease;
+}
+
+.contact-visible {
+    max-height: 1000px;
+    opacity: 1;
+}
+
+.contact-hidden {
+    max-height: 0;
+    opacity: 0;
+    pointer-events: none;
 }
