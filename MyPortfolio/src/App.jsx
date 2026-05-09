@@ -5,6 +5,8 @@ import AboutPage from './pages/AboutPage'
 import TimelinePage from './pages/TimelinePage'
 import SkillsPage from './pages/SkillsPage'
 import ProjectsPage from './pages/ProjectsPage'
+import BlogsPage from './pages/BlogsPage'
+import ContactSection from './pages/ContactSection'
 
 function App() {
   return (
@@ -15,6 +17,8 @@ function App() {
       <TimelinePage />
       <SkillsPage />
       <ProjectsPage />
+      <BlogsPage />
+      <ContactSection />
     </div>
   )
 }
