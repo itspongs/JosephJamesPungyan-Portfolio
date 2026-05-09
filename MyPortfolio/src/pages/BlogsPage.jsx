@@ -1,5 +1,9 @@
 import './BlogsPage.css'
 
+import ReadLogo from '../assets/logos/read.png'
+import DateLogo from '../assets/logos/date.png'
+import TimeLogo from '../assets/logos/time.png'
+
 function BlogsPage(){
     return (
         <>
@@ -25,7 +29,10 @@ function BlogsPage(){
                     <div className="blog-card">
                         <div className="blog-card-info">
 
-                            <p className="blog-entry">BLOG ENTRY #1</p>                            
+                            <div className="blog-entry-row">
+                                <img src={ReadLogo} className="blog-entry-logo" alt="" />
+                                <p className="blog-entry">BLOG ENTRY #1</p>
+                            </div>
                             <h3 className="blog-title-name">
                                 ConQuest, Our Final Java Project
                             </h3>
@@ -43,8 +50,14 @@ function BlogsPage(){
                                 <p className="blog-tag">COLLEGE</p>
                             </div>
                             <div className="blog-footer-row">
-                                <p className="blog-date">APRIL 27, 2026</p>
-                                <p className="blog-read">7 MINUTES READ</p>
+                                <div className="blog-footer-item">
+                                    <img src={DateLogo} className="blog-footer-logo" alt="" />
+                                    <p className="blog-date">APRIL 27, 2026</p>
+                                </div>
+                                <div className="blog-footer-item">
+                                    <img src={TimeLogo} className="blog-footer-logo" alt="" />
+                                    <p className="blog-read">7 MINUTES READ</p>
+                                </div>
                             </div>
                             <button className="read-more-button">READ MORE</button>                        
                         </div>
