@@ -6,6 +6,7 @@
 
 body {
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: rgba(0, 0, 0, 0.85);
 }
 
 .App {
@@ -18,4 +19,22 @@ body {
   margin: 0;
   padding-top: 0;
   padding-bottom: 0;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgb(120, 20, 20);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(225, 86, 86);
 }
