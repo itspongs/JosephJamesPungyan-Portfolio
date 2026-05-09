@@ -212,3 +212,25 @@
     }
 }
 
+
+@keyframes floatIn {
+    0%   { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0);    }
+}
+
+.project-content {
+    opacity: 1;
+}
+
+/* Hidden by default */
+.project-content .project-header-wrapper,
+.project-content hr,
+.project-content .projects-grid {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+/* Staggered animation */
+.project-content.visible .project-header-wrapper { animation: floatIn 0.7s ease 0s   forwards; }
+.project-content.visible hr                       { animation: floatIn 0.7s ease 0.2s forwards; }
+.project-content.visible .projects-grid           { animation: floatIn 0.7s ease 0.4s forwards; }
