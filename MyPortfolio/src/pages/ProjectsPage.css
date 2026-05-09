@@ -1,6 +1,6 @@
 .project-page {
     background-color: rgba(0, 0, 0, 0.85);
-    padding: 40px 6%;
+    padding: 40px 6.1%;
     font-family: 'Inter', sans-serif;
 }
 
@@ -109,6 +109,7 @@
     display: inline-block;
     align-self: flex-start;
     width: fit-content;
+    
 }
 
 .project-date {
@@ -222,7 +223,6 @@
     opacity: 1;
 }
 
-/* Hidden by default */
 .project-content .project-header-wrapper,
 .project-content hr,
 .project-content .projects-grid {
@@ -230,7 +230,7 @@
     transform: translateY(30px);
 }
 
-/* Staggered animation */
 .project-content.visible .project-header-wrapper { animation: floatIn 0.7s ease 0s   forwards; }
 .project-content.visible hr                       { animation: floatIn 0.7s ease 0.2s forwards; }
 .project-content.visible .projects-grid           { animation: floatIn 0.7s ease 0.4s forwards; }
+
