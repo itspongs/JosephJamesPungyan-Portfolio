@@ -1,5 +1,4 @@
 .blog-page {
-    background-color: rgba(0, 0, 0, 0.85);
     padding: 40px 6%;
     font-family: 'Inter', sans-serif;
 }
@@ -280,7 +279,6 @@
     opacity: 1;
 }
 
-/* Hidden by default */
 .blog-content .blog-header-wrapper,
 .blog-content hr,
 .blog-content .blogs-grid {
@@ -288,7 +286,6 @@
     transform: translateY(30px);
 }
 
-/* Staggered animation */
 .blog-content.visible .blog-header-wrapper { animation: floatIn 0.7s ease 0s   forwards; }
 .blog-content.visible hr                   { animation: floatIn 0.7s ease 0.2s forwards; }
 .blog-content.visible .blogs-grid          { animation: floatIn 0.7s ease 0.4s forwards; }
