@@ -1,6 +1,12 @@
 import { useEffect, useRef, useState } from 'react'
 import './AboutPage.css'
 
+import KnowMeLogo from '../assets/logos/know-me.png'
+import LearnLogo from '../assets/logos/learn.png'
+import CurrentFocusLogo from '../assets/logos/current-focus.png'
+import FutureFocusLogo from '../assets/logos/future-focus.png'
+
+
 function AboutPage() {
     const ref = useRef(null)
     const [inView, setInView] = useState(false)
@@ -43,7 +49,10 @@ function AboutPage() {
                 <div className="top-sections-wrapper">
                     <div className="box-anim box-anim-1">
                         <div className="get-to-know-me-container box-hover">
-                            <h3 className="about-header">Get to Know Me</h3>
+                            <div className="about-box-header-row">
+                                <img src={KnowMeLogo} className="about-box-logo" alt="" />
+                                <h3 className="about-header">Get to Know Me</h3>
+                            </div>
                             <hr className="about-top-line" />
                             <p className="about-top-description">
                                 A Second-Year student passionate about programming
@@ -57,7 +66,10 @@ function AboutPage() {
                     </div>
                     <div className="box-anim box-anim-2">
                         <div className="how-i-learn-container box-hover">
-                            <h3 className="about-header">How I Learn</h3>
+                            <div className="about-box-header-row">
+                                <img src={LearnLogo} className="about-box-logo" alt="" />
+                                <h3 className="about-header">How I Learn</h3>
+                            </div>
                             <hr className="about-top-line" />
                             <p className="about-top-description">
                                 I grow through hands-on practice and active participation
@@ -72,7 +84,10 @@ function AboutPage() {
                 <div className="bottom-sections-wrapper">
                     <div className="box-anim box-anim-3">
                         <div className="current-focus-container box-hover">
-                            <h3 className="about-header">Current Focus</h3>
+                            <div className="about-box-header-row">
+                                <img src={CurrentFocusLogo} className="about-box-logo" alt="" />
+                                <h3 className="about-header">Current Focus</h3>
+                            </div>
                             <hr className="about-bottom-line" />
                             <p className="about-bottom-description">
                                 Currently working on my web development skills for future
@@ -90,7 +105,10 @@ function AboutPage() {
                     </div>
                     <div className="box-anim box-anim-4">
                         <div className="future-goals-container box-hover">
-                            <h3 className="about-header">Future Goals</h3>
+                            <div className="about-box-header-row">
+                                <img src={FutureFocusLogo} className="about-box-logo" alt="" />
+                                <h3 className="about-header">Future Goals</h3>
+                            </div>
                             <hr className="about-bottom-line" />
                             <p className="about-bottom-description">
                                 Learn core languages like Python and explore programming-related
