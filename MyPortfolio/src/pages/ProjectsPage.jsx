@@ -28,7 +28,7 @@ function ProjectsPage(){
                             <p className="project-type">APPLICATION</p>
                             <hr className="project-divider" />
                             <p className="project-description">
-                                Our Final Java Group Project from the Intermediate Programming Course in our First Year
+                                A small interactive, Java-based quiz game designed to challenge your mind across a wide range of categories for our Final Java Project in College
                             </p>
                             <button className="view-project-button">VIEW PROJECT</button>
                         </div>
