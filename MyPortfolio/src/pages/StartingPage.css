@@ -205,12 +205,28 @@ body {
 
 .proceed-button:hover {
     transform: scale(1.1);  
-    animation: glowPulse 0.6s ease-in-out infinite;
+    animation: glowPulse 0.6s ease-in-out infinite; 
 }
 
 .button-wrapper {
-    animation: floatIn 0.6s ease 0.6s both, float 3s ease-in-out infinite;
     display: inline-block;
+    opacity: 1;
+    animation: floatIn 0.6s ease 0.6s both;
+}
+
+.button-float {
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes fadeOut {
+    0%   { opacity: 1; visibility: visible; }
+    99%  { opacity: 0; visibility: visible; }
+    100% { opacity: 0; visibility: hidden; }
+}
+
+.button-wrapper.fade-out {
+    animation: fadeOut 0.5s ease forwards;
+    pointer-events: none;
 }
 
 .mobile-only {
@@ -308,7 +324,6 @@ body {
     .proceed-button {
         width: 280px;
         font-size: 22px;
-        animation: float 3s ease-in-out infinite;
     }
 }
 

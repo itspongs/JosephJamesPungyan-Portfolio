@@ -7,7 +7,7 @@ import pongs4 from '../assets/images/pongs4.jpg'
 import pongs5 from '../assets/images/pongs5.jpg'
 import './StartingPage.css'
 
-function StartingPage() {
+function StartingPage({ onProceed }) {
 
     const images = [pongs1, pongs2, pongs3, pongs4, pongs5]
     const [currentImage, setCurrentImage] = useState(0)
@@ -32,6 +32,15 @@ function StartingPage() {
         clearInterval(intervalRef.current)
     }
 
+    const [fading, setFading] = useState(false)
+
+    const handleProceed = () => {
+        setFading(true)
+        setTimeout(() => {
+            onProceed()
+        }, 0)
+    }
+
     return (
         <>
             <title>Joseph James Pungyan</title>
@@ -44,62 +53,66 @@ function StartingPage() {
                 <div className="content-wrapper">
 
                     <div className="content-container">
-                    <div className="profile-texts">
-                        <div>
-                            <p className="portfolio-text">
-                                PORTFOLIO 2026 - STUDENT DEVELOPER
-                            </p>
-                        </div>
-                        <div>
-                            <p className="joseph-james-text">
-                                JOSEPH JAMES
-                            </p>
-                            <p className="pungyan-text">
-                                Pungyan
-                            </p>
-                        </div>
-                        <div>
-                            <hr className="bio-line" />
-                            <p className="bio-text">
-                                Just a guy who aspires to be successful and <br />
-                                overcome every obstacle. Shaping the best <br />
-                                version of myself.
-                            </p>
+                        <div className="profile-texts">
+                            <div>
+                                <p className="portfolio-text">
+                                    PORTFOLIO 2026 - STUDENT DEVELOPER
+                                </p>
+                            </div>
+                            <div>
+                                <p className="joseph-james-text">
+                                    JOSEPH JAMES
+                                </p>
+                                <p className="pungyan-text">
+                                    Pungyan
+                                </p>
+                            </div>
+                            <div>
+                                <hr className="bio-line" />
+                                <p className="bio-text">
+                                    Just a guy who aspires to be successful and <br />
+                                    overcome every obstacle. Shaping the best <br />
+                                    version of myself.
+                                </p>
+                            </div>
+
+                            <div className={`button-wrapper desktop-only ${fading ? 'fade-out' : ''}`}>
+                                <div className="button-float">
+                                    <button className="proceed-button" onClick={handleProceed}>
+                                        ▶ Click Here to Proceed
+                                    </button>
+                                </div>
+                            </div>
                         </div>
 
-                        <div className="button-wrapper desktop-only">
-                            <button className="proceed-button">
-                                ▶ Click Here to Proceed
-                            </button>
+                        <div className="pongs-picture-section">
+                            <div
+                                className="picture-wrapper"
+                                onMouseEnter={handleMouseEnter}
+                                onMouseLeave={handleMouseLeave}
+                            >
+                                <img
+                                    src={images[currentImage]}
+                                    className="pongs-picture base-image"
+                                    alt="Joseph James"
+                                />
+
+                                <img
+                                    src={images[nextImage]}
+                                    className={`pongs-picture overlay-image ${crossfading ? 'visible' : ''}`}
+                                    alt="Joseph James"
+                                />
+                            </div>
+
+                            <div className={`button-wrapper mobile-only ${fading ? 'fade-out' : ''}`}>
+                                <div className="button-float">
+                                    <button className="proceed-button" onClick={handleProceed}>
+                                        ▶ Click Here to Proceed
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
-
-                    <div className="pongs-picture-section">
-                        <div
-                            className="picture-wrapper"
-                            onMouseEnter={handleMouseEnter}
-                            onMouseLeave={handleMouseLeave}
-                        >
-                            <img
-                                src={images[currentImage]}
-                                className="pongs-picture base-image"
-                                alt="Joseph James"
-                            />
-
-                            <img
-                                src={images[nextImage]}
-                                className={`pongs-picture overlay-image ${crossfading ? 'visible' : ''}`}
-                                alt="Joseph James"
-                            />
-                        </div>
-
-                        <div className="button-wrapper mobile-only">
-                            <button className="proceed-button">
-                                ▶ Click Here to Proceed
-                            </button>
-                        </div>
-                    </div>
-                </div>
 
                 </div>
             </div>
