@@ -182,3 +182,127 @@
     text-align: center;
     margin: 0;
 }
+
+@media (max-width: 768px) {
+
+    .blog-modal-content {
+        width: 95%;
+        max-height: 92vh;
+        border-radius: 10px;
+    }
+
+    .blog-modal-body {
+        padding: 22px 18px;
+        gap: 10px;
+    }
+
+    .blog-modal-close {
+        width: 28px;
+        height: 28px;
+        font-size: 12px;
+        top: 12px;
+        right: 12px;
+    }
+
+    .blog-modal-entry {
+        font-size: 9px;
+        letter-spacing: 2px;
+    }
+
+    .blog-modal-title {
+        font-size: clamp(28px, 7vw, 40px);
+        line-height: 1.1;
+    }
+
+    .blog-modal-excerpt {
+        font-size: 16px;
+        line-height: 1.5;
+        margin-bottom: 12px;
+    }
+
+    .blog-modal-meta {
+        font-size: 12px;
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+
+    .blog-modal-tags {
+        gap: 6px;
+    }
+
+    .blog-modal-tag {
+        font-size: 10px;
+        padding: 4px 10px;
+        letter-spacing: 1px;
+    }
+
+    .blog-modal-text {
+        gap: 22px;
+    }
+
+    .blog-modal-paragraph {
+        font-size: 16px;
+        line-height: 1.7;
+    }
+
+    .blog-modal-section-title {
+        font-size: 28px;
+        padding-top: 2px;
+    }
+
+    .blog-modal-image-group {
+        gap: 12px;
+    }
+
+    .blog-modal-image-item {
+        min-width: 100px;
+        max-width: 140px;
+    }
+
+    .blog-modal-img {
+        border-radius: 6px;
+    }
+
+    .blog-modal-caption {
+        font-size: 9px;
+        line-height: 1.4;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .blog-modal-body {
+        padding: 18px 14px;
+    }
+
+    .blog-modal-title {
+        font-size: 30px;
+    }
+
+    .blog-modal-excerpt {
+        font-size: 15px;
+    }
+
+    .blog-modal-paragraph {
+        font-size: 15px;
+        line-height: 1.75;
+    }
+
+    .blog-modal-section-title {
+        font-size: 24px;
+    }
+
+    .blog-modal-image-item {
+        max-width: 100%;
+        min-width: 100%;
+    }
+
+    .blog-modal-img {
+        aspect-ratio: 16 / 10;
+        object-fit: cover;
+    }
+
+    .blog-modal-caption {
+        font-size: 10px;
+    }
+}
