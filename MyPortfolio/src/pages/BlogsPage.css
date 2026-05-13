@@ -201,27 +201,6 @@
     }
 }
 
-@media (max-width: 480px) {
-    .blog-page {
-        padding: 20px 4%;
-    }
-
-    .blog-header-wrapper {
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        gap: 10px;
-    }
-
-    .blog-title {
-        font-size: clamp(36px, 10vw, 55px);
-    }
-
-    .blog-header-description {
-        font-size: clamp(13px, 3vw, 18px);
-        text-align: right;
-    }
-}
 
 
 @media (max-width: 860px) {
@@ -292,3 +271,82 @@
 
 /* Footer spacing */
 .blog-page { padding-bottom: 100px !important; }
+
+/* ── Mobile Footer Cleanup ── */
+@media (max-width: 480px) {
+
+    .blog-card {
+        padding: 6px;
+    }
+
+    .blog-card-info {
+        padding: 12px;
+        gap: 4px;
+    }
+
+    .blog-title-name {
+        font-size: 26px;
+        line-height: 1.2;
+    }
+
+    .blog-excerpt {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    .blog-tags-row {
+        gap: 6px;
+    }
+
+    .blog-tag {
+        font-size: 10px;
+        padding: 3px 10px;
+        letter-spacing: 1px;
+    }
+
+    .blog-footer-row {
+        gap: 10px;
+        margin-top: 8px;
+    }
+
+    .blog-footer-item {
+        gap: 5px;
+    }
+
+    .blog-footer-logo {
+        width: 11px;
+        height: 11px;
+    }
+
+    .blog-date,
+    .blog-read {
+        font-size: 11px;
+        letter-spacing: 1px;
+    }
+
+    .blog-entry-logo {
+        width: 14px;
+        height: 14px;
+    }
+
+    .blog-entry {
+        font-size: 10px;
+        letter-spacing: 2px;
+    }
+
+    .read-more-button {
+        font-size: 9px;
+        letter-spacing: 2px;
+        padding: 8px;
+    }
+}
+
+@media (max-width: 360px) {
+    .blog-footer-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+    }
+}
+
+

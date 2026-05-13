@@ -1,5 +1,6 @@
 .project-page {
     padding: 40px 6.1%;
+    padding-bottom: 100px;
     font-family: 'Inter', sans-serif;
 }
 
@@ -108,12 +109,11 @@
     display: inline-block;
     align-self: flex-start;
     width: fit-content;
-    
 }
 
 .project-date {
     color: rgba(255, 255, 255, 0.6);
-    font-family: 'INTER', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: 12px;
     font-weight: 500;
     letter-spacing: 1px;
@@ -130,16 +130,14 @@
     font-family: 'Pontano Sans', sans-serif;
     font-size: 18px;
     font-weight: 300;
-    margin: 0;
+    margin: 0 0 20px 0;
     line-height: 1.5;
-    margin: 0px 0px 20px 0px;
 }
 
 .view-project-button {
     padding: 10px;
     font-family: 'Inter';
     font-weight: 700;
-    font-style: bold;
     letter-spacing: 3px;
     color: rgb(221, 75, 75);
     background-color: transparent;
@@ -153,65 +151,6 @@
     background-color: rgba(253, 117, 117, 0.197);
     cursor: pointer;
 }
-
-@media (max-width: 860px) {
-    .projects-grid .project-wrapper {
-        flex: 0 0 100%;
-    }
-}
-
-@media (max-width: 480px) {
-    .projects-grid .project-wrapper {
-        flex: 0 0 100%;
-    }
-}
-
-/* ── Responsive ── */
-@media (max-width: 860px) {
-    .project-page {
-        padding: 30px 5%;
-    }
-
-    .project-header-wrapper {
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        gap: 20px;
-        margin: 10px 0;
-    }
-
-    .project-title {
-        font-size: clamp(40px, 8vw, 80px);
-    }
-
-    .project-header-description {
-        font-size: clamp(16px, 2.5vw, 28px);
-        text-align: right;
-    }
-}
-
-@media (max-width: 480px) {
-    .project-page {
-        padding: 20px 4%;
-    }
-
-    .project-header-wrapper {
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        gap: 10px;
-    }
-
-    .project-title {
-        font-size: clamp(36px, 10vw, 55px);
-    }
-
-    .project-header-description {
-        font-size: clamp(13px, 3vw, 18px);
-        text-align: right;
-    }
-}
-
 
 @keyframes floatIn {
     0%   { opacity: 0; transform: translateY(30px); }
@@ -233,6 +172,94 @@
 .project-content.visible hr                       { animation: floatIn 0.7s ease 0.2s forwards; }
 .project-content.visible .projects-grid           { animation: floatIn 0.7s ease 0.4s forwards; }
 
+@media (max-width: 860px) {
+    .project-page {
+        padding: 30px 5%;
+        padding-bottom: 100px;
+    }
 
-/* Footer spacing */
-.project-page { padding-bottom: 100px !important; }
+    .project-header-wrapper {
+        gap: 20px;
+        margin: 10px 0;
+    }
+
+    .project-title {
+        font-size: clamp(40px, 8vw, 80px);
+    }
+
+    .project-header-description {
+        font-size: clamp(16px, 2.5vw, 28px);
+        text-align: right;
+    }
+
+    .projects-grid {
+        margin: 24px 10px;
+        gap: 16px;
+    }
+
+    .projects-grid .project-wrapper {
+        flex: 0 0 100%;
+    }
+
+    .project-title-name {
+        font-size: 32px;
+    }
+
+    .project-description {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .project-page {
+        padding: 20px 4%;
+        padding-bottom: 100px;
+    }
+
+    .project-header-wrapper {
+        gap: 10px;
+    }
+
+    .project-title {
+        font-size: clamp(28px, 8vw, 42px);
+    }
+
+    .project-header-description {
+        font-size: clamp(11px, 2.8vw, 14px);
+        text-align: right;
+        line-height: 1.6;
+    }
+
+    .projects-grid {
+        margin: 16px 0;
+        gap: 14px;
+    }
+
+    .projects-grid .project-wrapper {
+        flex: 0 0 100%;
+    }
+
+    .project-title-name {
+        font-size: 26px;
+    }
+
+    .project-date {
+        font-size: 10px;
+    }
+
+    .project-type {
+        font-size: 9px;
+        letter-spacing: 1px;
+        padding: 4px 12px;
+    }
+
+    .project-description {
+        font-size: 14px;
+    }
+
+    .view-project-button {
+        font-size: 11px;
+        letter-spacing: 2px;
+        padding: 8px;
+    }
+}

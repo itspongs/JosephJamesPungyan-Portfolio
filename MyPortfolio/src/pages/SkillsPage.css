@@ -1,5 +1,6 @@
 .skills-page {
     padding: 40px 6%;
+    padding-bottom: 100px;
     font-family: 'Inter', sans-serif;
 }
 
@@ -21,12 +22,10 @@
 .skills-content.visible .sk-anim-2             { animation: floatIn 0.7s ease 0.6s forwards; }
 .skills-content.visible .sk-anim-3             { animation: floatIn 0.7s ease 0.8s forwards; }
 
-/* sk-anim wrapper fills full width */
 .sk-anim {
     width: 100%;
 }
 
-/* Hover on inner box - separate from animation */
 .sk-hover {
     transition: transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
 }
@@ -37,7 +36,6 @@
     border-color: rgb(225, 86, 86);
 }
 
-/* Re-enable visible state rules */
 .skills-content.visible .languages-wrapper,
 .skills-content.visible .web-wrapper,
 .skills-content.visible .tools-wrapper {
@@ -102,6 +100,7 @@
     min-height: 100px;
     border-radius: 0px 20px 20px 0px;
     padding: 16px;
+    transition: transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .label-text {
@@ -137,54 +136,8 @@
     font-weight: 600;
     font-size: 12px;
     letter-spacing: 2px;
-    text-align: center; 
+    text-align: center;
     margin: 0px 0px 20px 0px;
-}
-
-/* ── Responsive ── */
-@media (max-width: 860px) {
-    .skills-page {
-        padding: 30px 5%;
-    }
-
-    .skills-header-wrapper {
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        gap: 20px;
-        margin: 10px 0;
-    }
-
-    .skills-title {
-        font-size: clamp(40px, 8vw, 80px);
-    }
-
-    .skills-header-description {
-        font-size: clamp(16px, 2.5vw, 28px);
-        text-align: right;
-    }
-}
-
-@media (max-width: 480px) {
-    .skills-page {
-        padding: 20px 4%;
-    }
-
-    .skills-header-wrapper {
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        gap: 10px;
-    }
-
-    .skills-title {
-        font-size: clamp(36px, 10vw, 55px);
-    }
-
-    .skills-header-description {
-        font-size: clamp(13px, 3vw, 18px);
-        text-align: right;
-    }
 }
 
 @keyframes floatIn {
@@ -198,19 +151,10 @@
     100% { transform: translateY(0px);  }
 }
 
-/* Box hover - transition handled by sk-hover */
-.languages-wrapper,
-.web-wrapper,
-.tools-wrapper {
-    transition: transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
-}
-
-/* Logo items float on hover */
 .sk-hover:hover .logo-item {
     animation: floatUpDown 1.5s ease-in-out infinite;
 }
 
-/* Logo opacity on hover */
 .sk-hover:hover .languages-logo,
 .sk-hover:hover .web-logo,
 .sk-hover:hover .tools-logo {
@@ -219,20 +163,17 @@
     filter: brightness(0) invert(1);
 }
 
-/* Logo label on hover */
 .sk-hover:hover .logo-label {
     opacity: 1;
     color: white;
     transition: color 0.3s ease, opacity 0.3s ease;
 }
 
-/* Label text on hover */
 .sk-hover:hover .label-text {
     color: rgb(225, 86, 86);
     transition: color 0.3s ease;
 }
 
-/* Label text opacity on hover */
 .languages-wrapper .label-text,
 .web-wrapper .label-text,
 .tools-wrapper .label-text {
@@ -245,7 +186,6 @@
     color: #cfceb5;
 }
 
-/* White filter on logo images when hovering the box */
 .languages-wrapper:hover .languages-logo,
 .web-wrapper:hover .web-logo,
 .tools-wrapper:hover .tools-logo {
@@ -253,7 +193,6 @@
     transition: filter 0.3s ease;
 }
 
-/* White logo label on hover */
 .languages-wrapper:hover .logo-label,
 .web-wrapper:hover .logo-label,
 .tools-wrapper:hover .logo-label {
@@ -261,5 +200,98 @@
     transition: color 0.3s ease;
 }
 
-/* Footer spacing */
-.skills-page { padding-bottom: 100px !important; }
+@media (max-width: 860px) {
+    .skills-page {
+        padding: 30px 5%;
+        padding-bottom: 100px;
+    }
+
+    .skills-header-wrapper {
+        gap: 20px;
+        margin: 10px 0;
+    }
+
+    .skills-title {
+        font-size: clamp(40px, 8vw, 80px);
+    }
+
+    .skills-header-description {
+        font-size: clamp(16px, 2.5vw, 28px);
+        text-align: right;
+    }
+
+    .skills-container {
+        margin: 20px 10px;
+    }
+
+    .languages-logo,
+    .web-logo,
+    .tools-logo {
+        width: 48px;
+        height: 48px;
+        margin: 6px;
+    }
+
+    .logo-label {
+        font-size: 10px;
+        letter-spacing: 1px;
+    }
+}
+
+@media (max-width: 480px) {
+    .skills-page {
+        padding: 20px 4%;
+        padding-bottom: 100px;
+    }
+
+    .skills-header-wrapper {
+        gap: 10px;
+    }
+
+    .skills-title {
+        font-size: clamp(28px, 8vw, 42px);
+    }
+
+    .skills-header-description {
+        font-size: clamp(11px, 2.8vw, 14px);
+        text-align: right;
+        line-height: 1.6;
+    }
+
+    .skills-container {
+        margin: 15px 0;
+    }
+
+    .languages-wrapper,
+    .web-wrapper,
+    .tools-wrapper {
+        border-left-width: 14px;
+        min-height: 70px;
+        gap: 10px;
+        padding: 12px;
+    }
+
+    .label-text {
+        font-size: 10px;
+        letter-spacing: 2px;
+        margin-bottom: 4px;
+    }
+
+    .logo-item {
+        gap: 4px;
+    }
+
+    .languages-logo,
+    .web-logo,
+    .tools-logo {
+        width: 34px;
+        height: 34px;
+        margin: 4px;
+    }
+
+    .logo-label {
+        font-size: 8px;
+        letter-spacing: 1px;
+        margin-bottom: 8px;
+    }
+}

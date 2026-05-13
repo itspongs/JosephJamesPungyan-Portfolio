@@ -55,6 +55,7 @@
 
 .timeline-page {
     padding: 40px 6%;
+    padding-bottom: 100px;
     font-family: 'Inter', sans-serif;
 }
 
@@ -115,7 +116,6 @@
     padding: 30px;
     width: 100%;
     box-sizing: border-box;
-    margin: 0;
     margin: 20px 60px 0px 0px;
     box-shadow: 0 0 10px rgba(75, 26, 26, 0.8), 0 0 20px rgba(0, 0, 0, 0.5), 0 0 40px rgba(6, 6, 6, 0.4);
 }
@@ -172,6 +172,7 @@
 @media (max-width: 860px) {
     .timeline-page {
         padding: 30px 5%;
+        padding-bottom: 100px;
     }
 
     .timeline-header-wrapper {
@@ -219,6 +220,7 @@
 @media (max-width: 480px) {
     .timeline-page {
         padding: 20px 4%;
+        padding-bottom: 100px;
     }
 
     .timeline-header-wrapper {
@@ -229,12 +231,13 @@
     }
 
     .timeline-title {
-        font-size: clamp(36px, 10vw, 55px);
+        font-size: clamp(28px, 8vw, 42px);
     }
 
     .header-description {
-        font-size: clamp(13px, 3vw, 18px);
+        font-size: clamp(11px, 2.8vw, 14px);
         text-align: right;
+        line-height: 1.6;
     }
 
     .timeline-content-section {
@@ -246,27 +249,31 @@
     .third-container,
     .present-container {
         margin: 12px 0;
-        padding: 20px;
-        border-left-width: 12px;
+        padding: 16px;
+        border-left-width: 10px;
     }
 
     .timeline-year-row {
-        gap: 12px;
-        flex-wrap: wrap;
+        gap: 8px;
+        align-items: flex-end;
     }
 
     .timeline-year {
-        font-size: clamp(26px, 8vw, 40px);
+        font-size: clamp(24px, 7vw, 36px);
     }
 
     .timeline-subtitle {
-        font-size: clamp(14px, 3.5vw, 20px);
+        font-size: clamp(13px, 3vw, 17px);
     }
 
     .timeline-description {
-        font-size: clamp(13px, 3vw, 16px);
+        font-size: clamp(12px, 2.8vw, 15px);
+    }
+
+    .timeline-tags {
+        font-size: 9px;
+        letter-spacing: 1px;
+        padding: 3px 8px;
+        margin: 10px 6px 0 0;
     }
 }
-
-/* Footer spacing */
-.timeline-page { padding-bottom: 100px !important; }
