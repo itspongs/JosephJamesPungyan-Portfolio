@@ -3,6 +3,7 @@ import './ContactSection.css'
 import githubLogo from '../assets/logos/github.png'
 import instagramLogo from '../assets/logos/instagram.png'
 import facebookLogo from '../assets/logos/facebook.png'
+import linkedInLogo from '../assets/logos/linked-in.png'
 
 function ContactSection(){
     const [copied, setCopied] = useState(false)
@@ -45,6 +46,10 @@ function ContactSection(){
                     <a href="https://www.facebook.com/josephjames.pungyan.5" target="_blank" className="social-link">
                         <img src={facebookLogo} alt="Facebook" className="social-logo" />
                         Facebook
+                    </a>
+                    <a href="https://www.linkedin.com/in/joseph-james-pungyan-a14156406/" target="_blank" className="social-link">
+                        <img src={linkedInLogo} alt="LinkedIn" className="social-logo" />
+                        LinkedIn
                     </a>
                 </div>
 
