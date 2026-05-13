@@ -1,7 +1,7 @@
 import { NavLink, useNavigate } from 'react-router-dom'
 import './Navbar.css'
 
-function Navbar() {
+function Navbar({ className }) {
     const navigate = useNavigate()
 
     const scrollToTop = () => {
@@ -10,7 +10,7 @@ function Navbar() {
 
     const handleNav = (path) => {
         navigate(path)
-        setTimeout(() => {
+        setTimeout(() => {  
             const content = document.getElementById('page-content')
             if (content) {
                 content.scrollIntoView({ behavior: 'smooth' })
@@ -18,8 +18,8 @@ function Navbar() {
         }, 50)
     }
 
-    return (
-        <nav className="navbar">
+       return (
+        <nav className={`navbar ${className || ''}`}>
             <div className="nav-pill">
                 <div className="nav-brand" onClick={scrollToTop}>
                     <span className="nav-logo">PONGS</span>

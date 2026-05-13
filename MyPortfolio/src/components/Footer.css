@@ -67,3 +67,24 @@
 .footer-contact-btn:active {
     transform: scale(0.97);
 }
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 6%;
+    background-color: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    animation: footerSlideUp 0.6s ease forwards;
+}
+
+@keyframes footerSlideUp {
+    0%   { opacity: 0; bottom: -60px; }
+    100% { opacity: 1; bottom: 0; }
+}
