@@ -1,21 +1,21 @@
 import { useState, useEffect } from 'react'
 import './MusicPlayer.css'
 
+const MAX_VOL = 0.1
+
 function MusicPlayer({ audioRef }) {
   const [playing, setPlaying] = useState(true)
-  const [volume, setVolume] = useState(0.2)
-
+  const [volume, setVolume] = useState(0.5)
 
   useEffect(() => {
     if (audioRef.current) {
-      const savedVol = audioRef.current.volume
-      setVolume(savedVol)
+      setVolume(audioRef.current.volume / MAX_VOL)
     }
   }, [audioRef])
 
   useEffect(() => {
     if (audioRef.current) {
-      audioRef.current.volume = volume
+      audioRef.current.volume = volume * MAX_VOL
     }
   }, [audioRef, volume])
 

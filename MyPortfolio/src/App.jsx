@@ -26,13 +26,12 @@ function App() {
   const audioCtxCreated = useRef(false)
   const contactRef = useRef(null)
 
-  // Store DOM nodes directly — no double .current
   const sectionRefs = useRef({
-    about: null,
+    about:    null,
     timeline: null,
-    skills: null,
+    skills:   null,
     projects: null,
-    blogs: null,
+    blogs:    null,
   })
 
   const scrollToSection = (key) => {
@@ -51,8 +50,8 @@ function App() {
       setAnalyser(analyserNode)
       audioCtxCreated.current = true
     }
-    audioRef.current.volume = 0.2  // ← set before play
-    audioRef.current.play().catch(() => { })
+    audioRef.current.volume = 0.05
+    audioRef.current.play().catch(() => {})
   }
 
   const handleProceed = () => {
