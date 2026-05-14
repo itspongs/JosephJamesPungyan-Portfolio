@@ -88,6 +88,7 @@ function App() {
             <Navbar
               className="navbar-enter"
               onNavClick={scrollToSection}
+              sectionRefs={sectionRefs}
             />
           )}
 
