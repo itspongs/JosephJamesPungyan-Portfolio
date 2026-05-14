@@ -1,4 +1,3 @@
-import { Routes, Route, Navigate } from 'react-router-dom'
 import { useRef, useState } from 'react'
 import './App.css'
 
@@ -15,7 +14,6 @@ import SkillsPage from './pages/SkillsPage'
 import ProjectsPage from './pages/ProjectsPage'
 import BlogsPage from './pages/BlogsPage'
 import ContactSection from './pages/ContactSection'
-import ErrorPage from './pages/ErrorPage'
 import IntroPage from './pages/IntroPage'
 
 function App() {
@@ -27,7 +25,19 @@ function App() {
   const audioRef = useRef(null)
   const audioCtxCreated = useRef(false)
   const contactRef = useRef(null)
-  const pageContentRef = useRef(null)
+
+  // Store DOM nodes directly — no double .current
+  const sectionRefs = useRef({
+    about: null,
+    timeline: null,
+    skills: null,
+    projects: null,
+    blogs: null,
+  })
+
+  const scrollToSection = (key) => {
+    sectionRefs.current[key]?.scrollIntoView({ behavior: 'smooth' })
+  }
 
   const startMusic = () => {
     if (!audioRef.current) return
@@ -41,13 +51,12 @@ function App() {
       setAnalyser(analyserNode)
       audioCtxCreated.current = true
     }
-    audioRef.current.play().catch(() => {})
+    audioRef.current.volume = 0.2  // ← set before play
+    audioRef.current.play().catch(() => { })
   }
 
   const handleProceed = () => {
-    setTimeout(() => {
-      setProceeded(true)
-    }, 50)
+    setTimeout(() => setProceeded(true), 50)
   }
 
   const handleContactClick = () => {
@@ -56,9 +65,7 @@ function App() {
     } else {
       setShowContact(true)
       setTimeout(() => {
-        if (contactRef.current) {
-          contactRef.current.scrollIntoView({ behavior: 'smooth' })
-        }
+        contactRef.current?.scrollIntoView({ behavior: 'smooth' })
       }, 300)
     }
   }
@@ -66,7 +73,6 @@ function App() {
   return (
     <div className="App">
       <audio ref={audioRef} src="/music.mp3" loop />
-      
 
       {!introDone && (
         <IntroPage
@@ -78,26 +84,44 @@ function App() {
       {introDone && (
         <>
           <Waveform analyser={analyser} />
-          {proceeded && <Navbar className="navbar-enter" />}
-          <div className="fixed-top">
-            <div id="top"><StartingPage onProceed={handleProceed} /></div>
-          </div>
+
           {proceeded && (
-            <div
-              id="page-content"
-              className="page-content"
-              ref={pageContentRef}
-            >
+            <Navbar
+              className="navbar-enter"
+              onNavClick={scrollToSection}
+            />
+          )}
+
+          <div className="fixed-top">
+            <div id="top">
+              <StartingPage onProceed={handleProceed} />
+            </div>
+          </div>
+
+          {proceeded && (
+            <div id="page-content" className="page-content">
               <BannerSection />
-              <Routes>
-                <Route path="/" element={<Navigate to="/about" replace />} />
-                <Route path="/about" element={<AboutPage />} />
-                <Route path="/timeline" element={<TimelinePage />} />
-                <Route path="/skills" element={<SkillsPage />} />
-                <Route path="/projects" element={<ProjectsPage />} />
-                <Route path="/blogs" element={<BlogsPage />} />
-                <Route path="*" element={<ErrorPage />} />
-              </Routes>
+
+              <section ref={(el) => (sectionRefs.current.about = el)}>
+                <AboutPage />
+              </section>
+
+              <section ref={(el) => (sectionRefs.current.timeline = el)}>
+                <TimelinePage />
+              </section>
+
+              <section ref={(el) => (sectionRefs.current.skills = el)}>
+                <SkillsPage />
+              </section>
+
+              <section ref={(el) => (sectionRefs.current.projects = el)}>
+                <ProjectsPage />
+              </section>
+
+              <section ref={(el) => (sectionRefs.current.blogs = el)}>
+                <BlogsPage />
+              </section>
+
               <div
                 ref={contactRef}
                 className={`contact-wrapper ${showContact ? 'contact-visible' : 'contact-hidden'}`}
@@ -106,9 +130,11 @@ function App() {
               </div>
             </div>
           )}
+
           {proceeded && (
             <Footer onContactClick={handleContactClick} showContact={showContact} />
           )}
+
           {proceeded && <MusicPlayer audioRef={audioRef} />}
         </>
       )}
