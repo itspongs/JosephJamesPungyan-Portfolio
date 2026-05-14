@@ -24,7 +24,7 @@
 
 .music-player {
   position: fixed;
-  bottom: 70px;
+  bottom: 80px;   /* clears the ~60px footer with breathing room */
   right: 24px;
   z-index: 998;
   display: flex;
@@ -39,7 +39,6 @@
   margin: 0;
 }
 
-/* Spinning disc */
 .music-disc {
   width: 34px;
   height: 34px;
@@ -69,7 +68,6 @@
   flex-shrink: 0;
 }
 
-/* Icon images — white tint */
 .music-icon {
   width: 18px;
   height: 18px;
@@ -79,7 +77,6 @@
   display: block;
 }
 
-/* Play/Pause button */
 .music-btn {
   background: none;
   border: none;
@@ -110,7 +107,6 @@
   animation: btnPop 0.3s ease forwards;
 }
 
-/* Volume */
 .volume-wrapper {
   display: flex;
   align-items: center;
@@ -175,10 +171,9 @@
   cursor: pointer;
 }
 
-/* Mobile — pin tight to bottom-right edge */
-@media (max-width: 768px) {
+@media (max-width: 480px) {
   .music-player {
-    bottom: 16px;
+    bottom: 120px;
     right: 12px;
     padding: 8px 10px;
     gap: 7px;
