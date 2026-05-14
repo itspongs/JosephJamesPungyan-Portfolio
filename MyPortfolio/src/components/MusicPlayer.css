@@ -36,7 +36,7 @@
   padding: 10px 14px;
   backdrop-filter: blur(12px);
   animation: fadeIn 0.5s ease both;
-  margin: 20px;
+  margin: 0;
 }
 
 /* Spinning disc */
@@ -173,4 +173,39 @@
   background: #e15656;
   border: none;
   cursor: pointer;
+}
+
+/* Mobile — pin tight to bottom-right edge */
+@media (max-width: 768px) {
+  .music-player {
+    bottom: 16px;
+    right: 12px;
+    padding: 8px 10px;
+    gap: 7px;
+  }
+
+  .music-disc {
+    width: 28px;
+    height: 28px;
+  }
+
+  .music-disc-inner {
+    width: 10px;
+    height: 10px;
+  }
+
+  .music-icon {
+    width: 15px;
+    height: 15px;
+  }
+
+  .music-btn {
+    width: 28px;
+    height: 28px;
+  }
+
+  .volume-icon-wrap {
+    width: 18px;
+    height: 18px;
+  }
 }
