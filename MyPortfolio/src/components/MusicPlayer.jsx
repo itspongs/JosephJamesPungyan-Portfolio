@@ -1,11 +1,18 @@
 import { useState, useEffect } from 'react'
 import './MusicPlayer.css'
 
+import playIcon from '../assets/icon/play.png'
+import pauseIcon from '../assets/icon/pause.png'
+import volumeIcon from '../assets/icon/volume.png'
+import muteIcon from '../assets/icon/mute.png'
+
 const MAX_VOL = 0.1
 
 function MusicPlayer({ audioRef }) {
   const [playing, setPlaying] = useState(true)
   const [volume, setVolume] = useState(0.5)
+  const [btnAnim, setBtnAnim] = useState(false)
+  const [volAnim, setVolAnim] = useState(false)
 
   useEffect(() => {
     if (audioRef.current) {
@@ -26,14 +33,18 @@ function MusicPlayer({ audioRef }) {
     } else {
       audioRef.current.play()
     }
+    setBtnAnim(true)
+    setTimeout(() => setBtnAnim(false), 300)
     setPlaying(prev => !prev)
   }
 
   const handleVolume = (e) => {
+    setVolAnim(true)
+    setTimeout(() => setVolAnim(false), 200)
     setVolume(parseFloat(e.target.value))
   }
 
-  const volIcon = volume === 0 ? '🔇' : volume < 0.5 ? '🔉' : '🔊'
+  const currentVolIcon = volume === 0 ? muteIcon : volumeIcon
 
   return (
     <div className="music-player">
@@ -43,12 +54,26 @@ function MusicPlayer({ audioRef }) {
 
       <div className="music-divider" />
 
-      <button className="music-btn" onClick={toggle} aria-label={playing ? 'Pause' : 'Play'}>
-        {playing ? '⏸' : '▶'}
+      <button
+        className={`music-btn ${btnAnim ? 'btn-pop' : ''}`}
+        onClick={toggle}
+        aria-label={playing ? 'Pause' : 'Play'}
+      >
+        <img
+          src={playing ? pauseIcon : playIcon}
+          alt={playing ? 'Pause' : 'Play'}
+          className="music-icon"
+        />
       </button>
 
       <div className="volume-wrapper">
-        <span className="volume-icon" aria-hidden="true">{volIcon}</span>
+        <span className={`volume-icon-wrap ${volAnim ? 'vol-pulse' : ''}`} aria-hidden="true">
+          <img
+            src={currentVolIcon}
+            alt={volume === 0 ? 'Muted' : 'Volume'}
+            className="music-icon"
+          />
+        </span>
         <div className="volume-slider-wrap">
           <input
             type="range"
