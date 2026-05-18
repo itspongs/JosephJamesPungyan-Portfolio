@@ -135,7 +135,7 @@ function App() {
             <Footer onContactClick={handleContactClick} showContact={showContact} />
           )}
 
-          {proceeded && <MusicPlayer audioRef={audioRef} />}
+          {proceeded && <MusicPlayer audioRef={audioRef} title="JENNI" artist="Yung Kage" />}
         </>
       )}
     </div>

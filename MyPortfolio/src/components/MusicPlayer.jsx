@@ -8,7 +8,7 @@ import muteIcon from '../assets/icon/mute.png'
 
 const MAX_VOL = 0.1
 
-function MusicPlayer({ audioRef }) {
+function MusicPlayer({ audioRef, title = "Song Title", artist = "Artist Name" }) {
   const [playing, setPlaying] = useState(true)
   const [volume, setVolume] = useState(0.5)
   const [btnAnim, setBtnAnim] = useState(false)
@@ -48,6 +48,32 @@ function MusicPlayer({ audioRef }) {
 
   return (
     <div className="music-player">
+
+      {/* Hover Tooltip */}
+      <div className="track-tooltip">
+        <div className="track-tooltip-header">
+          <span className="now-playing-dot" />
+          <span className="now-playing-label">NOW PLAYING</span>
+        </div>
+        <div className="track-tooltip-divider" />
+        <div className="track-tooltip-body">
+          <div className="track-disc-mini">
+            <div className="track-disc-mini-inner" />
+          </div>
+          <div className="track-texts">
+            <span className="track-title">{title}</span>
+            <span className="track-artist">{artist}</span>
+          </div>
+        </div>
+        <div className="track-bars">
+          <span className="bar" style={{ '--delay': '0s' }} />
+          <span className="bar" style={{ '--delay': '0.2s' }} />
+          <span className="bar" style={{ '--delay': '0.4s' }} />
+          <span className="bar" style={{ '--delay': '0.1s' }} />
+          <span className="bar" style={{ '--delay': '0.3s' }} />
+        </div>
+      </div>
+
       <div className={`music-disc ${playing ? 'spinning' : ''}`}>
         <div className="music-disc-inner" />
       </div>

@@ -21,10 +21,23 @@
   0%   { opacity: 0; transform: scale(0.7) rotate(-15deg); }
   100% { opacity: 1; transform: scale(1) rotate(0deg); }
 }
+@keyframes barBounce {
+  0%, 100% { height: 4px; }
+  50%       { height: 14px; }
+}
+@keyframes pulseDot {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.3; }
+}
+@keyframes tooltipIn {
+  from { opacity: 0; transform: translateY(8px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
 
+/* ── Player Shell ── */
 .music-player {
   position: fixed;
-  bottom: 80px;   /* clears the ~60px footer with breathing room */
+  bottom: 80px;
   right: 24px;
   z-index: 998;
   display: flex;
@@ -39,6 +52,139 @@
   margin: 0;
 }
 
+/* ── Tooltip ── */
+.track-tooltip {
+  position: absolute;
+  bottom: calc(100% + 14px);
+  right: 0;
+  background: rgba(12, 12, 12, 0.92);
+  border: 0.5px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 12px 16px;
+  backdrop-filter: blur(16px);
+  min-width: 200px;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(8px) scale(0.97);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+
+  /* subtle glow */
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.5),
+    0 0 0 0.5px rgba(225, 86, 86, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.music-player:hover .track-tooltip {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Header: NOW PLAYING */
+.track-tooltip-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.now-playing-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #e15656;
+  animation: pulseDot 1.2s ease infinite;
+  flex-shrink: 0;
+}
+
+.now-playing-label {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: #e15656;
+  text-transform: uppercase;
+}
+
+.track-tooltip-divider {
+  height: 0.5px;
+  background: rgba(255, 255, 255, 0.08);
+  margin-bottom: 10px;
+}
+
+/* Body: disc + texts */
+.track-tooltip-body {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.track-disc-mini {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, #e15656, #ffac63, #e15656);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  animation: spin 4s linear infinite;
+  box-shadow: 0 0 10px rgba(225, 86, 86, 0.3);
+}
+
+.track-disc-mini-inner {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #0f0f0f;
+}
+
+.track-texts {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  overflow: hidden;
+}
+
+.track-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.track-artist {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.45);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Equalizer bars */
+.track-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  height: 14px;
+  justify-content: flex-end;
+}
+
+.bar {
+  display: block;
+  width: 3px;
+  height: 4px;
+  border-radius: 2px;
+  background: linear-gradient(to top, #e15656, #ffac63);
+  animation: barBounce 0.8s ease-in-out infinite;
+  animation-delay: var(--delay);
+}
+
+/* ── Disc ── */
 .music-disc {
   width: 34px;
   height: 34px;
@@ -107,6 +253,7 @@
   animation: btnPop 0.3s ease forwards;
 }
 
+/* ── Volume ── */
 .volume-wrapper {
   display: flex;
   align-items: center;
@@ -171,6 +318,7 @@
   cursor: pointer;
 }
 
+/* ── Mobile ── */
 @media (max-width: 480px) {
   .music-player {
     bottom: 120px;
@@ -178,29 +326,28 @@
     padding: 8px 10px;
     gap: 7px;
   }
-
   .music-disc {
     width: 28px;
     height: 28px;
   }
-
   .music-disc-inner {
     width: 10px;
     height: 10px;
   }
-
   .music-icon {
     width: 15px;
     height: 15px;
   }
-
   .music-btn {
     width: 28px;
     height: 28px;
   }
-
   .volume-icon-wrap {
     width: 18px;
     height: 18px;
+  }
+  .track-tooltip {
+    min-width: 170px;
+    right: 0;
   }
 }
