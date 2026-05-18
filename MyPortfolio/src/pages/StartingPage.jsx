@@ -45,7 +45,7 @@ function StartingPage({ onProceed }) {
         <>
             <title>Joseph James Pungyan</title>
             <div className="starting-page-wrapper">
-                <video autoPlay loop muted className="video-background">
+                <video autoPlay loop muted playsInline className="video-background">
                     <source src="/background.mp4" type="video/mp4" />
                 </video>
 
