@@ -8,7 +8,7 @@ import pongs5 from '../assets/images/pongs5.jpg'
 import playIcon from '../assets/icon/play-icon.png'
 import './StartingPage.css'
 
-function StartingPage({ onProceed }) {
+function StartingPage({ onProceed, proceeded }) {
 
     const images = [pongs1, pongs2, pongs3, pongs4, pongs5]
     const [currentImage, setCurrentImage] = useState(0)
@@ -19,10 +19,10 @@ function StartingPage({ onProceed }) {
     const fadeTimerRef  = useRef(null)
     const isFadingRef   = useRef(false)
     const indexRef      = useRef(0)
-    const activeRef     = useRef(false)   // is cycling currently requested?
+    const activeRef     = useRef(false)
 
     const doNextFade = () => {
-        if (isFadingRef.current) return   // previous fade still running, skip tick
+        if (isFadingRef.current) return
 
         isFadingRef.current = true
         const next = (indexRef.current + 1) % images.length
@@ -48,13 +48,12 @@ function StartingPage({ onProceed }) {
         activeRef.current = false
         clearInterval(intervalRef.current)
         intervalRef.current = null
-        // let the in-progress fade finish naturally — don't cancel fadeTimerRef
+        
     }
 
     const handleMouseEnter = () => startCycling()
     const handleMouseLeave = () => stopCycling()
 
-    // prevent touchstart + mouseenter double-firing on hybrid devices
     const touchStartedRef = useRef(false)
 
     const handleTouchStart = (e) => {
@@ -118,13 +117,13 @@ function StartingPage({ onProceed }) {
                                 </p>
                             </div>
 
-                            <div className={`button-wrapper desktop-only ${fading ? 'fade-out' : ''}`}>
-                                <div className="button-float">
-                                    <button className="proceed-button" onClick={handleProceed}>
-                                        <img src={playIcon} alt="" className="proceed-icon" /> Click Here to Proceed
-                                    </button>
+                            <div className={`button-wrapper desktop-only ${fading ? 'fade-out' : ''} ${proceeded ? 'invisible' : ''}`}>
+                                    <div className="button-float">
+                                        <button className="proceed-button" onClick={handleProceed}>
+                                            <img src={playIcon} alt="" className="proceed-icon" /> Click Here to Proceed
+                                        </button>
+                                    </div>
                                 </div>
-                            </div>
                         </div>
 
                         <div className="pongs-picture-section">
@@ -148,13 +147,13 @@ function StartingPage({ onProceed }) {
                                 />
                             </div>
 
-                            <div className={`button-wrapper mobile-only ${fading ? 'fade-out' : ''}`}>
-                                <div className="button-float">
-                                    <button className="proceed-button" onClick={handleProceed}>
-                                        <img src={playIcon} alt="" className="proceed-icon" /> Click Here to Proceed
-                                    </button>
+                            <div className={`button-wrapper mobile-only ${fading ? 'fade-out' : ''} ${proceeded ? 'invisible' : ''}`}>
+                                    <div className="button-float">
+                                        <button className="proceed-button" onClick={handleProceed}>
+                                            <img src={playIcon} alt="" className="proceed-icon" /> Click Here to Proceed
+                                        </button>
+                                    </div>
                                 </div>
-                            </div>
                         </div>
                     </div>
 

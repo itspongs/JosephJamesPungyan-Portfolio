@@ -96,7 +96,6 @@ function App() {
 
   return (
     <div className="App">
-      {/* Audio and MusicPlayer live here so they persist across all routes */}
       <audio ref={audioRef} src="/music.mp3" loop />
       {proceeded && <MusicPlayer audioRef={audioRef} title="JENNI" artist="Yung Kage" />}
 
@@ -157,7 +156,7 @@ function PortfolioHome({
 
           <div className="fixed-top">
             <div id="top">
-              <StartingPage onProceed={handleProceed} />
+              <StartingPage onProceed={handleProceed} proceeded={proceeded} />
             </div>
           </div>
 
