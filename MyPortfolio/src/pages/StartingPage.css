@@ -197,10 +197,20 @@ body {
     background-color: transparent;
     cursor: pointer;
     color: white;
-    display: block;
+    display: flex;
+    align-items: center;
+    gap: 12px;
     padding: 0;
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 0, 0, 0.5), 0 0 40px rgba(0, 0, 0, 0.4);
     transition: transform 0.3s ease;
+}
+
+.proceed-icon {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+    flex-shrink: 0;
 }
 
 .proceed-button:hover {
