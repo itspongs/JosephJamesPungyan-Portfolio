@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import './App.css'
 
@@ -70,6 +70,29 @@ function App() {
       }, 300)
     }
   }
+
+  // On mobile only: pause music when user leaves the app, resume when they come back
+  const wasPlayingRef = useRef(false)
+
+  useEffect(() => {
+    const isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent)
+    if (!isMobile) return
+
+    const handleVisibilityChange = () => {
+      if (!audioRef.current) return
+      if (document.hidden) {
+        wasPlayingRef.current = !audioRef.current.paused
+        audioRef.current.pause()
+      } else {
+        if (wasPlayingRef.current) {
+          audioRef.current.play().catch(() => {})
+        }
+      }
+    }
+
+    document.addEventListener('visibilitychange', handleVisibilityChange)
+    return () => document.removeEventListener('visibilitychange', handleVisibilityChange)
+  }, [])
 
   return (
     <div className="App">
