@@ -13,6 +13,15 @@ function ProjectsPage(){
     const [selectedProject, setSelectedProject] = useState(null)
 
     useEffect(() => {
+        if (selectedProject) {
+            document.body.style.overflow = 'hidden'
+        } else {
+            document.body.style.overflow = ''
+        }
+        return () => { document.body.style.overflow = '' }
+    }, [selectedProject])
+
+    useEffect(() => {
         const element = ref.current
         if (!element) return
 

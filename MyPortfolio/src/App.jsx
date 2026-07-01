@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react'
+import { Routes, Route } from 'react-router-dom'
 import './App.css'
 
 import Navbar from './components/Navbar'
@@ -15,6 +16,7 @@ import ProjectsPage from './pages/ProjectsPage'
 import BlogsPage from './pages/BlogsPage'
 import ContactSection from './pages/ContactSection'
 import IntroPage from './pages/IntroPage'
+import BlogEntryPage from './pages/BlogEntryPage'
 
 function App() {
   const [introDone, setIntroDone] = useState(false)
@@ -71,7 +73,45 @@ function App() {
 
   return (
     <div className="App">
+      {/* Audio and MusicPlayer live here so they persist across all routes */}
       <audio ref={audioRef} src="/music.mp3" loop />
+      {proceeded && <MusicPlayer audioRef={audioRef} title="JENNI" artist="Yung Kage" />}
+
+      <Routes>
+        <Route path="/blog/:id" element={<BlogEntryPage />} />
+        <Route path="*" element={<PortfolioHome
+          introDone={introDone} setIntroDone={setIntroDone}
+          proceeded={proceeded}
+          analyser={analyser}
+          showContact={showContact}
+          audioRef={audioRef}
+          sectionRefs={sectionRefs}
+          scrollToSection={scrollToSection}
+          startMusic={startMusic}
+          handleProceed={handleProceed}
+          handleContactClick={handleContactClick}
+          contactRef={contactRef}
+        />} />
+      </Routes>
+    </div>
+  )
+}
+
+function PortfolioHome({
+  introDone, setIntroDone,
+  proceeded,
+  analyser,
+  showContact,
+  audioRef,
+  sectionRefs,
+  scrollToSection,
+  startMusic,
+  handleProceed,
+  handleContactClick,
+  contactRef,
+}) {
+  return (
+    <div className="App">
 
       {!introDone && (
         <IntroPage
@@ -134,8 +174,6 @@ function App() {
           {proceeded && (
             <Footer onContactClick={handleContactClick} showContact={showContact} />
           )}
-
-          {proceeded && <MusicPlayer audioRef={audioRef} title="JENNI" artist="Yung Kage" />}
         </>
       )}
     </div>

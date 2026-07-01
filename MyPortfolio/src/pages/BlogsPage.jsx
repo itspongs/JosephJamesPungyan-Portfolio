@@ -1,18 +1,18 @@
 import { useEffect, useRef, useState } from 'react'
+import { Link } from 'react-router-dom'
 import './BlogsPage.css'
 import ReadLogo from '../assets/logos/read.png'
 import DateLogo from '../assets/logos/date.png'
 import TimeLogo from '../assets/logos/time.png'
 
-import BlogModal from '../components/BlogModal'
 import Entry1 from './blogs/entry1'
+import Entry2 from './blogs/entry2'
 
-const blogs = [Entry1]
+const blogs = [Entry1, Entry2]
 
 function BlogsPage(){
     const ref = useRef(null)
     const [inView, setInView] = useState(false)
-    const [selectedBlog, setSelectedBlog] = useState(null)
 
     useEffect(() => {
         const element = ref.current
@@ -75,23 +75,15 @@ function BlogsPage(){
                                             <p className="blog-read">{blog.readTime}</p>
                                         </div>
                                     </div>
-                                    <button
-                                        className="read-more-button"
-                                        onClick={() => setSelectedBlog(blog)}
-                                    >
+                                    <Link to={`/blog/${blog.id}`} className="read-more-button">
                                         READ MORE
-                                    </button>
+                                    </Link>
                                 </div>
                             </div>
                         ))}
                     </div>
                 </div>
             </div>
-
-            <BlogModal
-                blog={selectedBlog}
-                onClose={() => setSelectedBlog(null)}
-            />
         </>
     )
 }

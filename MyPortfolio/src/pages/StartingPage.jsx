@@ -16,7 +16,7 @@ function StartingPage({ onProceed }) {
     const intervalRef = useRef(null)
     const indexRef = useRef(0)
 
-    const handleMouseEnter = () => {
+    const startCycling = () => {
         intervalRef.current = setInterval(() => {
             indexRef.current = (indexRef.current + 1) % images.length
             setNextImage(indexRef.current)
@@ -28,9 +28,15 @@ function StartingPage({ onProceed }) {
         }, 2500)
     }
 
-    const handleMouseLeave = () => {
+    const stopCycling = () => {
         clearInterval(intervalRef.current)
     }
+
+    const handleMouseEnter = () => startCycling()
+    const handleMouseLeave = () => stopCycling()
+
+    const handleTouchStart = () => startCycling()
+    const handleTouchEnd = () => stopCycling()
 
     const [fading, setFading] = useState(false)
 
@@ -90,6 +96,8 @@ function StartingPage({ onProceed }) {
                                 className="picture-wrapper"
                                 onMouseEnter={handleMouseEnter}
                                 onMouseLeave={handleMouseLeave}
+                                onTouchStart={handleTouchStart}
+                                onTouchEnd={handleTouchEnd}
                             >
                                 <img
                                     src={images[currentImage]}
