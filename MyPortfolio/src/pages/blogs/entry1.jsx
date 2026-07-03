@@ -1,7 +1,7 @@
-import pungyan from '../../assets/images/pungyan.jpg'
-import gavira from '../../assets/images/gavira.jpg'
-import vega from '../../assets/images/vega.jpg'
-import deJesus from '../../assets/images/de_jesus.png'
+import pungyan from '../../assets/images/blogEntry1/pungyan.jpg'
+import gavira from '../../assets/images/blogEntry1/gavira.jpg'
+import vega from '../../assets/images/blogEntry1/vega.jpg'
+import deJesus from '../../assets/images/blogEntry1/de_jesus.png'
 
 const Entry1 = {
     id: 'entry1',

@@ -10,10 +10,10 @@ const Migo = {
     fullDescription: [
         'Migo is a hyperlocal services platform purpose-built for Davao City, connecting residents with trusted locals for on-demand errands, everyday tasks, and skilled services. As one of the Philippines fastest-growing cities, Davao has long depended on word-of-mouth and scattered social media posts to find reliable help',
         'Migo replaces that with a single, dedicated marketplace where Dabawenyos can post urgent requests, hire for one-time tasks, or book services instantly. Designed around how Davao residents actually live and work, Migo brings structure, speed, and trust to a market that has been ready for it.',
-        'Together with: AJ Krystle Castro · Shekainah Bag-ao · Reynold Angelo Segundo · Joseph James Pungyan · Shane Rose Arangcon Ramos · Makin Luis Enerio · Klent Czarwen Tangaro'
+        'Together with: AJ Krystle Castro · Shekainah Bag-ao · Makin Luis Enerio · Joseph James Pungyan · Shane Rose Arangcon Ramos · Reynold Angelo Segundo · Klent Czarwen Tangaro'
     ],
     tags: ['WEB APP', 'MARKETPLACE', 'DAVAO CITY', 'FULL-STACK', 'FREELANCING', 'ODD JOBS'],
-    link: null
+    landingLink: 'https://migo-five.vercel.app'
 }
 
 export default Migo

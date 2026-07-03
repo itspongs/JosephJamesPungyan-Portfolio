@@ -14,7 +14,7 @@ const Conquest = {
         'Group Members: Joseph James P. Pungyan · Frances C. Vega · Francis Lawrence A. De Jesus · Zeus Angelo A. Gavira'
     ],
     tags: ['JAVA', 'QUIZ GAME', 'GROUP PROJECT', 'COLLEGE'],
-    link: 'https://github.com/itspongs/Conquest'
+    githubLink: 'https://github.com/itspongs/Conquest'
 }
 
 export default Conquest

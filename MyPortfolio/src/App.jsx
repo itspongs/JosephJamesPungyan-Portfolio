@@ -17,6 +17,7 @@ import BlogsPage from './pages/BlogsPage'
 import ContactSection from './pages/ContactSection'
 import IntroPage from './pages/IntroPage'
 import BlogEntryPage from './pages/BlogEntryPage'
+import audioStore from './audioStore'
 
 function App() {
   const [introDone, setIntroDone] = useState(false)
@@ -27,6 +28,11 @@ function App() {
   const audioRef = useRef(null)
   const audioCtxCreated = useRef(false)
   const contactRef = useRef(null)
+
+  // Expose audioRef globally so BlogEntryPage videos can pause/resume it
+  useEffect(() => {
+    audioStore.audioRef = audioRef
+  }, [])
 
   const sectionRefs = useRef({
     about:    null,

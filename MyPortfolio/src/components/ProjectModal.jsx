@@ -31,10 +31,15 @@ function ProjectModal({ project, onClose }) {
                             ))}
                         </div>
                     )}
-                    {project.link && (
-                        <a href={project.link} target="_blank" className="modal-link">
+                    {project.githubLink && (
+                        <a href={project.githubLink} target="_blank" rel="noreferrer" className="modal-link">
                             <img src={githubLogo} alt="" className="modal-github-logo" />
                             VIEW ON GITHUB
+                        </a>
+                    )}
+                    {project.landingLink && (
+                        <a href={project.landingLink} target="_blank" rel="noreferrer" className="modal-link modal-landing-link">
+                            VISIT EXPERIMENTAL LANDING
                         </a>
                     )}
                 </div>

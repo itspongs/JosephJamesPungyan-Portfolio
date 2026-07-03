@@ -7,8 +7,9 @@ import TimeLogo from '../assets/logos/time.png'
 
 import Entry1 from './blogs/entry1'
 import Entry2 from './blogs/entry2'
+import Entry3 from './blogs/entry3'
 
-const blogs = [Entry1, Entry2]
+const blogs = [Entry1, Entry2, Entry3]
 
 function BlogsPage(){
     const ref = useRef(null)
