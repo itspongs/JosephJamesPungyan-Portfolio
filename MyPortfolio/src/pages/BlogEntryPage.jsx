@@ -1,7 +1,8 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import './BlogEntryPage.css'
 import audioStore from '../audioStore'
+import MusicPlayer from '../components/MusicPlayer'
 
 import Entry1 from './blogs/entry1'
 import Entry2 from './blogs/entry2'
@@ -14,26 +15,47 @@ function BlogEntryPage() {
     const navigate = useNavigate()
     const blog = allBlogs.find((b) => b.id === id)
     const containerRef = useRef(null)
+    const musicWasPlayingRef = useRef(false)
+    const [showMusicPrompt, setShowMusicPrompt] = useState(false)
+    const [musicStarted, setMusicStarted] = useState(false)
 
     useEffect(() => {
         window.scrollTo(0, 0)
     }, [])
 
+    // Try to auto-start music; if browser blocks it, show a prompt button
+    useEffect(() => {
+        const audio = audioStore.audioRef?.current
+        if (!audio) return
+        if (audio.paused) {
+            audio.volume = 0.05
+            audio.play()
+                .then(() => setMusicStarted(true))
+                .catch(() => setShowMusicPrompt(true))
+        } else {
+            setMusicStarted(true)
+        }
+    }, [])
+
+    // Pause bg music when a blog video plays; only resume if it was playing before
     useEffect(() => {
         const container = containerRef.current
         if (!container) return
 
-        const bgAudio = () => audioStore.audioRef?.current
+        const getAudio = () => audioStore.audioRef?.current
 
         const handlePlay = () => {
-            if (bgAudio() && !bgAudio().paused) {
-                bgAudio().pause()
-            }
+            const audio = getAudio()
+            if (!audio) return
+            musicWasPlayingRef.current = !audio.paused
+            if (!audio.paused) audio.pause()
         }
 
         const handlePauseOrEnd = () => {
-            if (bgAudio() && bgAudio().paused) {
-                bgAudio().play().catch(() => {})
+            const audio = getAudio()
+            if (!audio) return
+            if (musicWasPlayingRef.current && audio.paused) {
+                audio.play().catch(() => {})
             }
         }
 
@@ -53,10 +75,23 @@ function BlogEntryPage() {
         }
     }, [blog])
 
+    // Go home and skip the intro/proceed screen
+    const handleBack = () => navigate('/', { state: { skipIntro: true } })
+
+    const handleMusicPrompt = () => {
+        const audio = audioStore.audioRef?.current
+        if (audio) {
+            audio.volume = 0.05
+            audio.play().catch(() => {})
+        }
+        setShowMusicPrompt(false)
+        setMusicStarted(true)
+    }
+
     if (!blog) {
         return (
             <div className="blog-entry-page">
-                <button className="blog-entry-back" onClick={() => navigate(-1)}>← Go Back</button>
+                <button className="blog-entry-back" onClick={handleBack}>← Go Back</button>
                 <p className="blog-entry-not-found">Blog entry not found.</p>
             </div>
         )
@@ -64,7 +99,17 @@ function BlogEntryPage() {
 
     return (
         <div className="blog-entry-page" ref={containerRef}>
-            <button className="blog-entry-back" onClick={() => navigate(-1)}>← Back</button>
+            <button className="blog-entry-back" onClick={handleBack}>← Back</button>
+
+            {showMusicPrompt && (
+                <button className="blog-music-prompt" onClick={handleMusicPrompt}>
+                    ♪ Play Music
+                </button>
+            )}
+
+            {musicStarted && audioStore.audioRef && (
+                <MusicPlayer audioRef={audioStore.audioRef} title="JENNI" artist="Yung Kage" />
+            )}
 
             <div className="blog-entry-body">
                 <p className="blog-entry-label anim-1">{blog.entry}</p>
@@ -139,7 +184,8 @@ function BlogEntryPage() {
                                         {item.label} →
                                     </a>
                                   </div>
-                                : <p key={i} className="blog-entry-paragraph">{item.text || item}</p>                        )
+                                : <p key={i} className="blog-entry-paragraph">{item.text || item}</p>
+                        )
                         : <p className="blog-entry-paragraph">{blog.content}</p>
                     }
                 </div>

@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect } from 'react'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, useLocation } from 'react-router-dom'
 import './App.css'
 
 import Navbar from './components/Navbar'
@@ -20,6 +20,8 @@ import BlogEntryPage from './pages/BlogEntryPage'
 import audioStore from './audioStore'
 
 function App() {
+  const location = useLocation()
+
   const [introDone, setIntroDone] = useState(false)
   const [proceeded, setProceeded] = useState(false)
   const [analyser, setAnalyser] = useState(null)
@@ -29,10 +31,23 @@ function App() {
   const audioCtxCreated = useRef(false)
   const contactRef = useRef(null)
 
-  // Expose audioRef globally so BlogEntryPage videos can pause/resume it
+  // Expose audioRef globally so BlogEntryPage can access it
   useEffect(() => {
     audioStore.audioRef = audioRef
   }, [])
+
+  // When navigating back from a blog entry, skip the intro and start music
+  useEffect(() => {
+    if (location.state?.skipIntro) {
+      setIntroDone(true)
+      setProceeded(true)
+      // Start music immediately since user already interacted on the blog page
+      if (audioRef.current) {
+        audioRef.current.volume = 0.05
+        audioRef.current.play().catch(() => {})
+      }
+    }
+  }, [location.state])
 
   const sectionRefs = useRef({
     about:    null,
@@ -112,7 +127,6 @@ function App() {
           proceeded={proceeded}
           analyser={analyser}
           showContact={showContact}
-          audioRef={audioRef}
           sectionRefs={sectionRefs}
           scrollToSection={scrollToSection}
           startMusic={startMusic}
@@ -130,7 +144,6 @@ function PortfolioHome({
   proceeded,
   analyser,
   showContact,
-  audioRef,
   sectionRefs,
   scrollToSection,
   startMusic,
